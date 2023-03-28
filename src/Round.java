@@ -17,8 +17,8 @@ public class Round {
     }
 
     public void printRoundBeginningInfo() {
-        System.out.println("Mängija kaardid: " + mängijaKaardid);
-        System.out.println("Diileri kaardid: " + diileriKaardid);
+        System.out.println("Mängija kaardid: " + mängijaKaardid + ", väärtus: " +  Kaardid.getKaartideVäärtus(mängijaKaardid));
+        System.out.println("Diileri kaardid: " + diileriKaardid + ", väärtus: " + Kaardid.getKaartideVäärtus(diileriKaardid));
         System.out.println("Panuse suurus: " + paunseSuurus);
     }
 
@@ -38,7 +38,7 @@ public class Round {
                 mängijaKaardid.add(uusKaart);
 
                 System.out.println("Said juurde: " + uusKaart);
-                System.out.println("Mängija kaardid: " + mängijaKaardid);
+                System.out.println("Mängija kaardid: " + mängijaKaardid+", väärtus: " + Kaardid.getKaartideVäärtus(mängijaKaardid));
             } else {
                 // Mängija lõpetab mängu, kuna Jääb
                 mängijaJääb = true;
@@ -57,7 +57,7 @@ public class Round {
             diileriKaardid.add(kaardipakk.võtaKaartPakist());
         }
 
-        System.out.println("Diileri kaardid: " + diileriKaardid);
+        System.out.println("Diileri kaardid: " + diileriKaardid+", väärtus: " + Kaardid.getKaartideVäärtus(diileriKaardid));
 
         // Diiler bust
         if (Kaardid.getKaartideVäärtus(diileriKaardid) > Mäng.BUST_NUMBER) {
