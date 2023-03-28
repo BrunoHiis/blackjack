@@ -1,35 +1,38 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 public class Kaardid {
-    private String mast;
-    private int väärtus;
-    private String suurus;
-
-    public Kaardid(String mast, int väärtus, String suurus) {
-        this.mast = mast;
-        this.väärtus = väärtus;
-        this.suurus = suurus;
+    public ArrayList<Kaart> looKaardipakk(int pakkideArv) {
+        ArrayList<Kaart> kaardid = new ArrayList<>();
+        ArrayList<String> Mastid = new ArrayList<>(Arrays.asList("risti", "ruutu", "ärtu", "poti"));
+        LinkedHashMap<String, Integer> suurus = new LinkedHashMap<>();
+        suurus.put("üks",1);
+        suurus.put("kaks",2);
+        suurus.put("kolm",3);
+        suurus.put("neli",4);
+        suurus.put("viis",5);
+        suurus.put("kuus",6);
+        suurus.put("seitse",7);
+        suurus.put("kaheksa",8);
+        suurus.put("üheksa", 9);
+        suurus.put("kümme", 10);
+        suurus.put("poiss", 10);
+        suurus.put("emand", 10);
+        suurus.put("kuningas",10);
+        suurus.put("äss", 11);
+        for (int i = 0; i < pakkideArv; i++) {
+            for (String mast : Mastid) {
+                for (Map.Entry<String, Integer> e : suurus.entrySet()) {
+                    String s = e.getKey();
+                    int Väärtus = e.getValue();
+                    kaardid.add(new Kaart(mast, Väärtus, s));
+                }
+            }
+        }
+        return kaardid;
     }
 
-    public String getMast() {
-        return mast;
-    }
 
-    public void setMast(String mast) {
-        this.mast = mast;
-    }
-
-    public int getVäärtus() {
-        return väärtus;
-    }
-
-    public void setVäärtus(int väärtus) {
-        this.väärtus = väärtus;
-    }
-
-    public String getSuurus() {
-        return suurus;
-    }
-
-    public void setSuurus(String suurus) {
-        this.suurus = suurus;
-    }
 }
