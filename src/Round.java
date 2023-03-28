@@ -16,7 +16,7 @@ public class Round {
         diileriKaardid.add(kaardipakk.võtaKaartPakist());
     }
 
-    public void printRoundBeginningInfo() {
+    public void pirndiRoundiAlguseInfo() {
         System.out.println("Mängija kaardid: " + mängijaKaardid + ", väärtus: " +  Kaardid.getKaartideVäärtus(mängijaKaardid));
         System.out.println("Diileri kaardid: " + diileriKaardid + ", väärtus: " + Kaardid.getKaartideVäärtus(diileriKaardid));
         System.out.println("Panuse suurus: " + paunseSuurus);
@@ -24,7 +24,7 @@ public class Round {
 
     public void uusRound() {
         boolean mängijaJääb = false;
-        printRoundBeginningInfo();
+        pirndiRoundiAlguseInfo();
 
         // Kui mängija kaartide skoor on väiksem kui 23, siis küsi kasutajalt, kas ta tahab veel kaarte võtta
         while (Kaardid.getKaartideVäärtus(mängijaKaardid) < Mäng.BUST_NUMBER && !mängijaJääb) {
@@ -68,7 +68,7 @@ public class Round {
 
         // Pakkuja võidab
         if (Kaardid.getKaartideVäärtus(diileriKaardid) > Kaardid.getKaartideVäärtus(mängijaKaardid)) {
-            System.out.println("Pakkuja võitis!");
+            System.out.println("Diiler võitis!");
             Mäng.raha -= paunseSuurus;
             return;
         }
