@@ -7,8 +7,8 @@ public class Round {
     private int paunseSuurus;
     private Kaardid kaardipakk;
 
-    public Round(int betSize) {
-        this.paunseSuurus = betSize;
+    public Round(int kuiPaljuRaha) {
+        this.paunseSuurus = kuiPaljuRaha;
         this.kaardipakk = new Kaardid();
         mängijaKaardid.add(kaardipakk.lisaKaart());
         mängijaKaardid.add(kaardipakk.lisaKaart());
