@@ -4,7 +4,14 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Kaardid {
-    public ArrayList<Kaart> looKaardipakk(int pakkideArv) {
+    private ArrayList<Kaart> kaardid;
+
+    public Kaardid() {
+        this.kaardid = looKaardipakk(4);
+    }
+
+
+    public static ArrayList<Kaart> looKaardipakk(int pakkideArv) {
         ArrayList<Kaart> kaardid = new ArrayList<>();
         ArrayList<String> Mastid = new ArrayList<>(Arrays.asList("risti", "ruutu", "ärtu", "poti"));
         LinkedHashMap<String, Integer> suurus = new LinkedHashMap<>();
@@ -34,5 +41,11 @@ public class Kaardid {
         return kaardid;
     }
 
+    public Kaart lisaKaart() {
+        int size = kaardid.size();
+        int randomIndex = (int) (Math.random() * size);
+        Kaart kaart = kaardid.remove(randomIndex);
+        return kaart;
+    }
 
 }

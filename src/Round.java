@@ -8,9 +8,12 @@ public class Round {
     private int paunseSuurus;
 
     public Round(int betSize) {
-        this.mängijaKaardid = mängijaKaardid.lisaKaart().lisaKaart();
-        this.diileriKaardid = mängijaKaardid.lisaKaart();
         this.paunseSuurus = betSize;
+
+        mängijaKaardid.lisaKaart();
+        mängijaKaardid.lisaKaart();
+
+        diileriKaardid.lisaKaart();
     }
 
     public void printRoundBeginningInfo() {

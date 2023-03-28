@@ -1,8 +1,11 @@
+import java.util.ArrayList;
+
 public class Mäng {
     public static final int BUST_NUMBER = 23;
     public static int raha = 1000;
 
     public void uusMäng() {
+        Kaardid kaardid = new Kaardid();
         System.out.println("Uus mäng alustatud!");
         System.out.println("Sinu raha: " + raha);
 
