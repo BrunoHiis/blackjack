@@ -15,19 +15,19 @@ public class Kaardid {
         ArrayList<Kaart> kaardid = new ArrayList<>();
         ArrayList<String> Mastid = new ArrayList<>(Arrays.asList("risti", "ruutu", "ärtu", "poti"));
         LinkedHashMap<String, Integer> suurus = new LinkedHashMap<>();
-        suurus.put("üks",1);
-        suurus.put("kaks",2);
-        suurus.put("kolm",3);
-        suurus.put("neli",4);
-        suurus.put("viis",5);
-        suurus.put("kuus",6);
-        suurus.put("seitse",7);
-        suurus.put("kaheksa",8);
+        suurus.put("üks", 1);
+        suurus.put("kaks", 2);
+        suurus.put("kolm", 3);
+        suurus.put("neli", 4);
+        suurus.put("viis", 5);
+        suurus.put("kuus", 6);
+        suurus.put("seitse", 7);
+        suurus.put("kaheksa", 8);
         suurus.put("üheksa", 9);
         suurus.put("kümme", 10);
         suurus.put("poiss", 10);
         suurus.put("emand", 10);
-        suurus.put("kuningas",10);
+        suurus.put("kuningas", 10);
         suurus.put("äss", 11);
         for (int i = 0; i < pakkideArv; i++) {
             for (String mast : Mastid) {
@@ -40,7 +40,6 @@ public class Kaardid {
         }
         return kaardid;
     }
-
     public Kaart lisaKaart() {
         int size = kaardid.size();
         int randomIndex = (int) (Math.random() * size);

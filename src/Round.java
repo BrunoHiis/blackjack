@@ -10,7 +10,6 @@ public class Round {
     public Round(int betSize) {
         this.paunseSuurus = betSize;
         this.kaardipakk = new Kaardid();
-
         mängijaKaardid.add(kaardipakk.lisaKaart());
         mängijaKaardid.add(kaardipakk.lisaKaart());
 

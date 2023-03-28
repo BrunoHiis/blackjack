@@ -32,6 +32,7 @@ public class Kaart {
     public void setSuurus(String suurus) {
         this.suurus = suurus;
     }
+
     @Override
     public String toString() {
         return mast + " " + suurus;

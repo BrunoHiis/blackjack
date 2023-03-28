@@ -4,6 +4,7 @@ import java.util.Scanner;
 public class Mäng {
     public static final int BUST_NUMBER = 23;
     public static int raha = 1000;
+
     public static void main(String[] args) {
         Mäng mäng = new Mäng();
         mäng.uusMäng();
@@ -16,10 +17,17 @@ public class Mäng {
         Scanner scanner = new Scanner(System.in);
 
         // Kui raha on 0, siis mäng lõppeb
-        while(raha > 0) {
+        while (raha > 0) {
             // Küsi kasutajalt panus
-            System.out.println("Sisesta panus: ");
-            int panus = Integer.parseInt(scanner.nextLine());
+            int panus = 0;
+            while (true) {
+                System.out.println("Sisesta panus: ");
+                panus = Integer.parseInt(scanner.nextLine());
+                if (panus > 0 && panus <= raha) {
+                    break;
+                }
+                System.out.println("Vigane panus! Palun sisesta panus vahemikus 1 kuni " + raha);
+            }
 
             // Loome uue roundi klassi
             Round round = new Round(panus);
