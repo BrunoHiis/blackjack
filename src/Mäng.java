@@ -5,11 +5,6 @@ public class Mäng {
     public static final int BUST_NUMBER = 23;
     public static int raha = 1000;
 
-    public static void main(String[] args) {
-        Mäng mäng = new Mäng();
-        mäng.uusMäng();
-    }
-
     public void uusMäng() {
         Kaardid kaardid = new Kaardid();
         System.out.println("Uus mäng alustatud!");
@@ -20,6 +15,8 @@ public class Mäng {
         while (raha > 0) {
             // Küsi kasutajalt panus
             int panus = 0;
+
+            // Küsib kasutajalt panuse, kuni ta sisestab õige panuse
             while (true) {
                 System.out.println("Sisesta panus: ");
                 panus = Integer.parseInt(scanner.nextLine());

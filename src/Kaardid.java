@@ -10,7 +10,6 @@ public class Kaardid {
         this.kaardid = looKaardipakk(4);
     }
 
-
     public static ArrayList<Kaart> looKaardipakk(int pakkideArv) {
         ArrayList<Kaart> kaardid = new ArrayList<>();
         ArrayList<String> Mastid = new ArrayList<>(Arrays.asList("risti", "ruutu", "ärtu", "poti"));
@@ -40,11 +39,30 @@ public class Kaardid {
         }
         return kaardid;
     }
-    public Kaart lisaKaart() {
+
+    public static int getKaartideVäärtus(ArrayList<Kaart> käsi) {
+        int väärtus = 0;
+        int ässadeArv = 0;
+
+        for (Kaart kaart : käsi) {
+            väärtus += kaart.getVäärtus();
+            if (kaart.getSuurus().equals("äss")) {
+                ässadeArv++;
+            }
+        }
+
+        while (väärtus > Mäng.BUST_NUMBER && ässadeArv > 0) {
+            väärtus -= 10;
+            ässadeArv--;
+        }
+
+        return väärtus;
+    }
+
+    public Kaart võtaKaartPakist() {
         int size = kaardid.size();
         int randomIndex = (int) (Math.random() * size);
         Kaart kaart = kaardid.remove(randomIndex);
         return kaart;
     }
-
 }
