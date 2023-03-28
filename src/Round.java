@@ -12,13 +12,12 @@ public class Round {
         this.kaardipakk = new Kaardid();
         mängijaKaardid.add(kaardipakk.lisaKaart());
         mängijaKaardid.add(kaardipakk.lisaKaart());
-
         diileriKaardid.add(kaardipakk.lisaKaart());
     }
 
-    public void printRoundBeginningInfo() {
-        System.out.println("Mängija kaardid: " + mängijaKaardid);
-        System.out.println("Diileri kaardid: " + diileriKaardid);
+    public void roundiAlgus() {
+        System.out.println("Mängija kaardid: " + mängijaKaardid+", väärtus: " +getKäeVäärtus(mängijaKaardid));
+        System.out.println("Diileri kaardid: " + diileriKaardid+", väärtus: " +getKäeVäärtus(diileriKaardid));
         System.out.println("Panuse suurus: " + paunseSuurus);
     }
 
@@ -44,7 +43,7 @@ public class Round {
     public void uusRound() {
         boolean mängijaJääb = false;
 
-        printRoundBeginningInfo();
+        roundiAlgus();
 
         // Kui mängija kaartide skoor on väiksem kui 23, siis küsi kasutajalt, kas ta tahab veel kaarte võtta
         while (getKäeVäärtus(mängijaKaardid) < Mäng.BUST_NUMBER && !mängijaJääb) {
@@ -57,7 +56,7 @@ public class Round {
                 Kaart uusKaart = kaardipakk.lisaKaart();
                 mängijaKaardid.add(uusKaart);
                 System.out.println("Said juurde: " + uusKaart);
-                System.out.println("Mängija kaardid: " + mängijaKaardid);
+                System.out.println("Mängija kaardid: " + mängijaKaardid+", väärtus: " +getKäeVäärtus(mängijaKaardid));
             } else {
                 // Mängija lõpetab mängu, kuna Jääb
                 mängijaJääb = true;
@@ -66,7 +65,7 @@ public class Round {
 
 // Bust
         if (getKäeVäärtus(mängijaKaardid) > Mäng.BUST_NUMBER) {
-            System.out.println("Mängija kaardid: " + mängijaKaardid);
+            System.out.println("Läksite üle 23");
             Mäng.raha -= paunseSuurus;
             return;
         }
@@ -76,7 +75,7 @@ public class Round {
             diileriKaardid.add(kaardipakk.lisaKaart());
         }
 
-        System.out.println("Diileri kaardid: " + diileriKaardid);
+        System.out.println("Diileri kaardid: " + diileriKaardid+", väärtus: " +getKäeVäärtus(diileriKaardid));
 
 // Diiler bust
         if (getKäeVäärtus(diileriKaardid) > Mäng.BUST_NUMBER) {
@@ -85,9 +84,9 @@ public class Round {
             return;
         }
 
-// Pakkuja võidab
+// Diiler võidab
         if (getKäeVäärtus(diileriKaardid) > getKäeVäärtus(mängijaKaardid)) {
-            System.out.println("Pakkuja võitis!");
+            System.out.println("Diiler võitis!");
             Mäng.raha -= paunseSuurus;
             return;
         }
